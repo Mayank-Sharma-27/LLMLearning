@@ -48,7 +48,7 @@ We fix this by introducing a new type of neuron called singmoid neuron. They are
 In case of sigmoid neuron the inputs will we x1,x2,x3, but instead of being just 0 or 1, these inputs can also take any values between 0 and 1. So for instance, 0.138 is a valid input for a sigmoid neuron. Similar to perceptron, the sigmoid neuron has weights for each input, w1,w2,w3... and an overall bias b. 
 
 Another major difference  is that instead of output just being 1 or 0 it, its σ(w⋅x+b) where σ is called the sigmoid function which is defined by:
-![[sigmoid_function.png]]
+![[sigmoid_function.png]](sigmoid_function.png)
 
 The output of the sigmoid function with weights would look like this : 
 ![](https://miro.medium.com/v2/resize:fit:381/1*hsxr27HSqlBJcw9IARQZbQ.png)
