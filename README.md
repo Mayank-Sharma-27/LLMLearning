@@ -6,7 +6,7 @@ Perceptrons were [developed](http://books.google.ca/books/about/Principles_of_n
 
 A perceptron takes a binary inputs x1,x2,… and produces a single binary output.
 
-![4 steps (1).png](4 steps (1).png)
+![perceptron.png](perceptron.png)
 
 In the example shown the perceptron has three inputs, x1,x2,x3 In general it could have more or fewer inputs. The neuron’s output is determined by weather the sum of the inputs is greater then sun threshold value.
 
