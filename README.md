@@ -6,7 +6,7 @@ Perceptrons were [developed](http://books.google.ca/books/about/Principles_of_n
 
 A perceptron takes a binary inputs x1,x2,… and produces a single binary output.
 
-![4 steps (1).png](Neural%20Networks%20Fundamentals%20116a06ba1bc880368378cc368c6f0eb7/4_steps_(1).png)
+![4 steps (1).png](4 steps (1).png)
 
 In the example shown the perceptron has three inputs, x1,x2,x3 In general it could have more or fewer inputs. The neuron’s output is determined by weather the sum of the inputs is greater then sun threshold value.
 
@@ -20,7 +20,7 @@ Suppose you are on a weight loss journey and someone just put a box of sweets in
 
 1. Did complete your calorie goals for the day?
 2. Does your favourite sweet is part of the sweets which are offered?
-3. Are the sweets present low in calorie?
+3. Are the sweets present low in calories?
 
 We can represent these factors by corresponding binary variables x1,x2 and x3. For instance if you like the sweet we will have x1=1 if you don’t like it x1= . Similarly for others as well we will have x2=1 if your favourite sweet is present and x2=0 if its not there, similar with x3 as well.
 
