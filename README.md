@@ -1,4 +1,4 @@
-# Neural Networks Fundamentals
+## Neural Networks Fundamentals
 
 The most common neuron model userd today is one called the sigmoid neuron, but before understanding that. I will try to understand what are perceptrons and what gaps that they had which lead to people learning sigmoid neurons?
 
@@ -33,3 +33,41 @@ From this example we understand that the neuron’s output is determined by weig
 ∑j wjxj is less than or greater than some _threshold value_. Just like the weights, the threshold is a real number which is a parameter of the neuron. To put it in more precise algebraic terms:
 
 ![function.png](function.png)
+
+## Sigmoid Neurons
+
+Let us now try to understand why we needed signmoid neurons. Suppose we have a network of perceptrons to solve a specific set of problem. Let us say we are uploading and image to read handwritten letters. We want the network to learn weights and biases so that the output from the network correctly classifies the letter. Suppose we want the network to understand the difference b/w 'd' and 'b',we observe that the network in unable to recognise this and we make a slight change in the weight so that instead of classifying the image as a 'b' it classifies the image as a 'd'.  Similarlarly we would want to change the weight and biases in other cases as well.
+![[perceptron_weight_change.png]]
+
+The problem is that this isn't what happens when our network contains perceptrons. In fact, a small change in the weights or bias of any single perceptron in the network can sometimes cause the output of that perceptron to completely flip, say from 0 to 1. That flip may then cause the behaviour of the rest of the network to completely change in some very complicated way. So while your "b" might now be classified correctly, the behaviour of the network on all the other images is likely to have completely changed in some hard-to-control way. That makes it difficult to see how to gradually modify the weights and biases so that the network gets closer to the desired behaviour. Perhaps there's some clever way of getting around this problem. But it's not immediately obvious how we can get a network of perceptrons to learn.
+
+We fix this by introducing a new type of neuron called singmoid neuron. They are similar to perceptrons but they can be modified in such as way that small changes in their weights and biases cause only a small change in their output.
+
+![perceptron.png](perceptron.png)
+
+In case of sigmoid neuron the inputs will we x1,x2,x3, but instead of being just 0 or 1, these inputs can also take any values between 0 and 1. So for instance, 0.138 is a valid input for a sigmoid neuron. Similar to perceptron, the sigmoid neuron has weights for each input, w1,w2,w3... and an overall bias b. 
+
+Another major difference  is that instead of output just being 1 or 0 it, its σ(w⋅x+b) where σ is called the sigmoid function which is defined by:
+![[sigmoid_function.png]]
+
+The output of the sigmoid function with weights would look like this : 
+![](https://miro.medium.com/v2/resize:fit:381/1*hsxr27HSqlBJcw9IARQZbQ.png)
+
+Now **to visualize this function**, we can take some values of x and y and plot it to see what it looks like, for example in the below case, we are plotting (‘**wx + b**’) on the x-axis and ‘y’ value on the y-axis.
+![[sigmoid_graph.png]]
+
+If ‘**wx + b**’ is 0, then the equation(**y**) is reduced to:
+
+![[Screenshot 2024-10-06 at 2.13.01 PM.png]]
+
+Let’s try some other value:
+
+![[Screenshot 2024-10-06 at 2.14.14 PM.png]]
+
+This example is taken from the blog : https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2
+
+To understand the similarity to the perceptron model, suppose z≡w⋅x+bz≡w⋅x+b is a large positive number. Then e−z≈0 and so σ(z)≈1 In other words, when z=w⋅x+b is large and positive, the output from the sigmoid neuron is approximately 1, just as it would have been for a perceptron. Suppose on the other hand that z=w⋅x+b is very negative. Then e−z→∞ and σ(z)≈0. So when z=w⋅x+b is very negative, the behaviour of a sigmoid neuron also closely approximates a perceptron. It's only when w⋅x+b is of modest size that there's much deviation from the perceptron model
+
+So the sigmoid function looks something like this:
+
+![[sigmoid_function_graph.png]]

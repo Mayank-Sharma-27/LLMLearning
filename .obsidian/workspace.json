@@ -1,0 +1,162 @@
+{
+  "main": {
+    "id": "006bbc2079c75e82",
+    "type": "split",
+    "children": [
+      {
+        "id": "a60aef2c4044521a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "66f64885628b2c6c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0ada67c670ac579d",
+    "type": "split",
+    "children": [
+      {
+        "id": "35c40d8ade4e668a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "86c9fb998cddf052",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2c621a3d4faa83b0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1916477bd88fa35f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9be7b49088223640",
+    "type": "split",
+    "children": [
+      {
+        "id": "bd763762cecfda8d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "54393c5a96fb00bf",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7438918cad5c7a0b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1a38a29d8baf9de3",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "017478472ded0f18",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "66f64885628b2c6c",
+  "lastOpenFiles": [
+    "sigmoid_function_graph.png",
+    "README.md",
+    "Screenshot 2024-10-06 at 2.14.14 PM.png",
+    "sigmoid_graph.png",
+    "Screenshot 2024-10-06 at 2.13.01 PM.png",
+    "Sigmoid_function_with_Weights.webp",
+    "sigmoid_function.png",
+    "perceptron_weight_change.png",
+    "function.png",
+    "perceptron.png"
+  ]
+}
