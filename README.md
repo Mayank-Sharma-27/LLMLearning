@@ -1,4 +1,12 @@
-## Neural Networks Fundamentals
+Before Diving deep into neural networks its a suggestion to revise linear algebra.
+
+# Linear Algebra
+
+## Vectors
+
+Resource : [Good Youtube Playlist](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
+
+# Neural Networks Fundamentals
 
 The most common neuron model userd today is one called the sigmoid neuron, but before understanding that. I will try to understand what are perceptrons and what gaps that they had which lead to people learning sigmoid neurons?
 
@@ -71,6 +79,14 @@ To understand the similarity to the perceptron model, suppose z≡w⋅x+bz≡w�
 So the sigmoid function looks something like this:
 
 ![[sigmoid_function_graph.png]](sigmoid_function_graph.png)
+
+## Neural Networks
+
+![[neural_network_architecture.png]](neural_network_architecture.png)
+
+In the neural network architecture, the leftmost layer is called the input layer and the rightmost is called the output layer. The middle layers are called hidden layers.
+
+The design of the input and output layers in a network is often straightforward. For example, suppose we're trying to determine whether a handwritten image depicts a "9" or not. A natural way to design the network is to encode the intensities of the image pixels into the input neurons. If the image is a 64 by 64 greyscale image, then we'd have 4,096=64×64 input neurons, with the intensities scaled appropriately between 0 and 1. The output layer will contain just a single neuron, with output values of less than 0.5 indicating "input image is not a 9", and values greater than 0.5 indicating "input image is a 9".
 
 
 
