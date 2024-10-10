@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "9be7b49088223640",
@@ -146,7 +147,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "66f64885628b2c6c",
+  "active": "86c9fb998cddf052",
   "lastOpenFiles": [
     "neural_network_architecture.png",
     "Screenshot 2024-10-06 at 2.14.14 PM.png",

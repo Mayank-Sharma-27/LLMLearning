@@ -4,11 +4,13 @@ Before Diving deep into neural networks its a suggestion to revise linear algebr
 
 ## Vectors
 
+A vector is a quantity that has both magnitude and direction. Vectors are crucial in neural networks as inputs, weights, and other parameters are often represented as vectors. Operations like dot products and matrix multiplications are fundamental in neural network computations
+
 Resource : [Good Youtube Playlist](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
 
 # Neural Networks Fundamentals
 
-The most common neuron model userd today is one called the sigmoid neuron, but before understanding that. I will try to understand what are perceptrons and what gaps that they had which lead to people learning sigmoid neurons?
+The most common neuron model used today is one called the sigmoid neuron, but before understanding that. I will try to understand what are perceptrons and what gaps that they had which lead to people learning sigmoid neurons?
 
 Perceptrons were [developed](http://books.google.ca/books/about/Principles_of_neurodynamics.html?id=7FhRAAAAMAAJ) in the 1950s and 1960s by the scientist [Frank Rosenblatt](http://en.wikipedia.org/wiki/Frank_Rosenblatt), inspired by earlier [work](http://scholar.google.ca/scholar?cluster=4035975255085082870) by [Warren McCulloch](http://en.wikipedia.org/wiki/Warren_McCulloch) and [Walter Pitts](http://en.wikipedia.org/wiki/Walter_Pitts).
 
@@ -16,7 +18,7 @@ A perceptron takes a binary inputs x1,x2,… and produces a single binary output
 
 ![perceptron.png](perceptron.png)
 
-In the example shown the perceptron has three inputs, x1,x2,x3 In general it could have more or fewer inputs. The neuron’s output is determined by weather the sum of the inputs is greater then sun threshold value.
+In the example shown the perceptron has three inputs, x1,x2,x3 In general it could have more or fewer inputs. The perceptron’s output is determined by whether the weighted sum of the inputs is greater than some threshold value.
 
 x1+x2+x3 < threshold then the output will be 0 otherwise it will be 1. But in this example the weight of each input is 1.
 
@@ -24,7 +26,7 @@ x1+x2+x3 < threshold then the output will be 0 otherwise it will be 1. But in th
 
 A way you can think about the perceptron is that it's a device that makes decisions by weighing up evidence. Let us understand this with an example:
 
-Suppose you are on a weight loss journey and someone just put a box of sweets in front of you. Now you may want to decide weather of not to eat the sweets based on the following 3 factors:
+Suppose you are on a weight loss journey and someone just put a box of sweets in front of you. Now you may want to decide whether of not to eat the sweets based on the following 3 factors:
 
 1. Did complete your calorie goals for the day?
 2. Does your favourite sweet is part of the sweets which are offered?
@@ -42,20 +44,20 @@ From this example we understand that the neuron’s output is determined by weig
 
 ![function.png](function.png)
 
-## Sigmoid Neurons
+### Sigmoid Neurons
 
-Let us now try to understand why we needed signmoid neurons. Suppose we have a network of perceptrons to solve a specific set of problem. Let us say we are uploading and image to read handwritten letters. We want the network to learn weights and biases so that the output from the network correctly classifies the letter. Suppose we want the network to understand the difference b/w 'd' and 'b',we observe that the network in unable to recognise this and we make a slight change in the weight so that instead of classifying the image as a 'b' it classifies the image as a 'd'. Similarlarly we would want to change the weight and biases in other cases as well.
+Let us now try to understand why we needed signmoid neurons. Suppose we have a network of perceptrons to solve a specific set of problem. Let us say we are uploading and image to read handwritten letters. We want the network to learn weights and biases so that the output from the network correctly classifies the letter. Suppose we want the network to understand the difference b/w 'd' and 'b',we observe that the network in unable to recognise this and we make a slight change in the weight so that instead of classifying the image as a 'b' it classifies the image as a 'd'. Similarly we would want to change the weight and biases in other cases as well.
 ![[perceptron_weight_change.png]](perceptron_weight_change.png)
 
 The problem is that this isn't what happens when our network contains perceptrons. In fact, a small change in the weights or bias of any single perceptron in the network can sometimes cause the output of that perceptron to completely flip, say from 0 to 1. That flip may then cause the behaviour of the rest of the network to completely change in some very complicated way. So while your "b" might now be classified correctly, the behaviour of the network on all the other images is likely to have completely changed in some hard-to-control way. That makes it difficult to see how to gradually modify the weights and biases so that the network gets closer to the desired behaviour. Perhaps there's some clever way of getting around this problem. But it's not immediately obvious how we can get a network of perceptrons to learn.
 
-We fix this by introducing a new type of neuron called singmoid neuron. They are similar to perceptrons but they can be modified in such as way that small changes in their weights and biases cause only a small change in their output.
+We fix this by introducing a new type of neuron called Sigmoid neuron. They are similar to perceptrons but they can be modified in such as way that small changes in their weights and biases cause only a small change in their output.
 
 ![perceptron.png](perceptron.png)
 
 In case of sigmoid neuron the inputs will we x1,x2,x3, but instead of being just 0 or 1, these inputs can also take any values between 0 and 1. So for instance, 0.138 is a valid input for a sigmoid neuron. Similar to perceptron, the sigmoid neuron has weights for each input, w1,w2,w3... and an overall bias b.
 
-Another major difference is that instead of output just being 1 or 0 it, its σ(w⋅x+b) where σ is called the sigmoid function which is defined by:
+Unlike perceptrons, which output either 0 or 1, sigmoid neurons output a value between 0 and 1, calculated using the sigmoid function:
 ![[sigmoid_function.png]](sigmoid_function.png)
 
 The output of the sigmoid function with weights would look like this :
@@ -80,13 +82,27 @@ So the sigmoid function looks something like this:
 
 ![[sigmoid_function_graph.png]](sigmoid_function_graph.png)
 
-## Neural Networks
+### Neural Networks
 
 ![[neural_network_architecture.png]](neural_network_architecture.png)
 
 In the neural network architecture, the leftmost layer is called the input layer and the rightmost is called the output layer. The middle layers are called hidden layers.
 
-The design of the input and output layers in a network is often straightforward. For example, suppose we're trying to determine whether a handwritten image depicts a "9" or not. A natural way to design the network is to encode the intensities of the image pixels into the input neurons. If the image is a 64 by 64 greyscale image, then we'd have 4,096=64×64 input neurons, with the intensities scaled appropriately between 0 and 1. The output layer will contain just a single neuron, with output values of less than 0.5 indicating "input image is not a 9", and values greater than 0.5 indicating "input image is a 9".
+The design of the input and output layers in a network is often straightforward. For example, suppose we're trying to determine if a handwritten image depicts a "9" or not. A natural way to design the network is to encode the intensities of the image pixels into the input neurons. If the image is a 64 by 64 greyscale image, then we'd have 4,096=64×64 input neurons, with the intensities scaled appropriately between 0 and 1. The output layer will contain just a single neuron, with output values of less than 0.5 indicating "input image is not a 9", and values greater than 0.5 indicating "input image is a 9".
+
+### Gradient Descent
+To train the neural network we feed the neural network with a training labled data. For example if we feed in a input x and we expected an input y we will feed that the network. This is how we make sure that the network learns overtime. Suppose after training the data we feed in the input to the network and check what was the output given by the network. If the network gets this wrong we try to adjust the weight and biases again and try. 
+
+Let us understand this with a example, Suppose we have a model which predicts the price of house based on some input parameters such as pincode and size of the house. We train the model based on the training data and then feed an input to the model to predict the price. Suppose the prediction made by the model is that house will be sold by 1 million, but in reality the house was sold at the price of 1.5 million. This means that we need to adjust the weights and biases again and train the model. In technical terms we will say that the ```cost function``` is very large in this case.
+#### Cost Function
+In neural networks, a cost function measures the error between predicted values and actual values. A common example of a cost function is **Mean Squared Error (MSE)**, which is defined as the average of the squared differences between predicted and actual values
+
+Gradient Descent is a first-order optimization algorithm used to minimize the cost function by iteratively moving in the direction of the steepest descent (i.e., the negative of the gradient). The step size is determined by the **learning rate**. Too large a learning rate may cause the model to overshoot, while too small may make the training slow
+
+Read more here
+https://www.geeksforgeeks.org/gradient-descent-algorithm-and-its-variants/
+Youtube videos : https://www.youtube.com/watch?v=i62czvwDlsw&t=20s
+https://www.youtube.com/watch?v=IHZwWFHWa-w&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=2
 
 
 
