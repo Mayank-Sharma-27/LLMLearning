@@ -101,8 +101,8 @@ Gradient Descent is a first-order optimization algorithm used to minimize the co
 
 Read more here
 https://www.geeksforgeeks.org/gradient-descent-algorithm-and-its-variants/
-Youtube videos : https://www.youtube.com/watch?v=i62czvwDlsw&t=20s
-https://www.youtube.com/watch?v=IHZwWFHWa-w&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=2
+Youtube videos : [1](https://www.youtube.com/watch?v=i62czvwDlsw&t=20s)
+[2](https://www.youtube.com/watch?v=IHZwWFHWa-w&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=2)
 
 
 
