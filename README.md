@@ -95,6 +95,8 @@ To train the neural network we feed the neural network with a training labled da
 
 Let us understand this with a example, Suppose we have a model which predicts the price of house based on some input parameters such as pincode and size of the house. We train the model based on the training data and then feed an input to the model to predict the price. Suppose the prediction made by the model is that house will be sold by 1 million, but in reality the house was sold at the price of 1.5 million. This means that we need to adjust the weights and biases again and train the model. In technical terms we will say that the ```cost function``` is very large in this case.
 #### Cost Function
+
+![[cost-of-difference.png]](cost-of-difference.png)
 In neural networks, a cost function measures the error between predicted values and actual values. A common example of a cost function is **Mean Squared Error (MSE)**, which is defined as the average of the squared differences between predicted and actual values
 
 Gradient Descent is a first-order optimization algorithm used to minimize the cost function by iteratively moving in the direction of the steepest descent (i.e., the negative of the gradient). The step size is determined by the **learning rate**. Too large a learning rate may cause the model to overshoot, while too small may make the training slow
@@ -104,7 +106,10 @@ https://www.geeksforgeeks.org/gradient-descent-algorithm-and-its-variants/
 Youtube videos : [1](https://www.youtube.com/watch?v=i62czvwDlsw&t=20s)
 [2](https://www.youtube.com/watch?v=IHZwWFHWa-w&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=2)
 
+### Back Propagation
+Till now we have learnt how the architecuture of neural network looks like where we have input layer, hidden layers and the output layer. The input is traversed through hidden layers with weight and biases to produce an output and this is called forward propagation. We saw in the above section that the final output might not be correct. In that case network needs to learn from its mistakes. Back Propagation is an algorithm used to train the neural networks applying the error correction principle.
 
+![[backpropagation.png]](backpropagation.png)
 
 | Resources   |                                                                                                                  |
 | ----------- | ---------------------------------------------------------------------------------------------------------------- |
