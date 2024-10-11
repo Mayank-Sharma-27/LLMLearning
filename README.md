@@ -107,9 +107,13 @@ Youtube videos : [1](https://www.youtube.com/watch?v=i62czvwDlsw&t=20s)
 [2](https://www.youtube.com/watch?v=IHZwWFHWa-w&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=2)
 
 ### Back Propagation
-Till now we have learnt how the architecuture of neural network looks like where we have input layer, hidden layers and the output layer. The input is traversed through hidden layers with weight and biases to produce an output and this is called forward propagation. We saw in the above section that the final output might not be correct. In that case network needs to learn from its mistakes. Back Propagation is an algorithm used to train the neural networks applying the error correction principle.
+Till now we have learnt how the architecture of neural network looks like where we have input layer, hidden layers and the output layer. The input is traversed through hidden layers with weight and biases to produce an output and this is called forward propagation. We saw in the above section that the final output might not be correct. In that case network needs to learn from its mistakes. Back Propagation is an algorithm used to train the neural networks applying the error correction principle.
 
 ![[backpropagation.png]](backpropagation.png)
+
+Next Step before starting Zero to Hero Course : https://www.youtube.com/watch?v=VMj-3S1tku0&t=7334s is to learn about PyTorch
+
+
 
 | Resources   |                                                                                                                  |
 | ----------- | ---------------------------------------------------------------------------------------------------------------- |
