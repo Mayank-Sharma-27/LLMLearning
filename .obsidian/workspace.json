@@ -148,6 +148,8 @@
   },
   "active": "66f64885628b2c6c",
   "lastOpenFiles": [
+    "micrograd_from_scratch.ipynb",
+    "micrograd_from_scratch.",
     "cost-of-difference.png",
     "backpropagation.png",
     "neural_network_architecture.png",
@@ -158,7 +160,6 @@
     "sigmoid_graph.png",
     "Sigmoid_function_with_Weights.webp",
     "sigmoid_function.png",
-    "perceptron_weight_change.png",
-    "function.png"
+    "perceptron_weight_change.png"
   ]
 }

@@ -113,6 +113,20 @@ Till now we have learnt how the architecture of neural network looks like where 
 
 Next Step before starting Zero to Hero Course : https://www.youtube.com/watch?v=VMj-3S1tku0&t=7334s is to learn about PyTorch
 
+## Implementing Video 1 in the series
+Some questions that I will keep on documenting
+
+### What is Numpy?
+NumPy is a Python library used for working with arrays.
+It also has functions for working in domain of linear algebra, fourier transform, and matrices.
+
+### What is a derivative?
+The derivative is the slope of the tangent line of a curve. The derivative the slope of a specific line. For a linear function like y = mx + b, the derivative is just m. Every point on the curve has the same local slope.
+
+For quadratic functions like y = x2 the derivative is 2x. So at any point the slope of the tangent line is 2x. At x = 0, at the bottom of the parabola the derivative is 2*0 = 0. It's a flat constant line that touches the parabola at x = 0. At x = 1 the derivative is 2 times 1 or 2. At x = 2 the derivative is 2 times 2 = 4. At x = 3 the derivative is 2 times 3 = 6. So though points on y = x2 are always the square of the x value, the slope at that point is increasing by 2 times the value of x at that point.
+
+The derivative is the instantaneous rate of a change. If you are traveling in a car the derivative of your distance with respect to time is your velocity. Miles per hour or kilometers per hour is your rate of change. The value of the speed on the speedometer is the rate of change right now. Your average rate of change is the total distance you traveled divided by the total time traveled over the period of interest.
+
 
 
 | Resources   |                                                                                                                  |
