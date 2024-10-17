@@ -148,6 +148,10 @@
   },
   "active": "66f64885628b2c6c",
   "lastOpenFiles": [
+    "short_graph.png",
+    "graph.png",
+    "derivative.png",
+    "code.png",
     "Screenshot 2024-10-17 at 8.08.26 AM.png",
     "Screenshot 2024-10-17 at 8.00.33 AM.png",
     "Screenshot 2024-10-17 at 7.59.27 AM.png",
@@ -157,10 +161,6 @@
     "cost-of-difference.png",
     "backpropagation.png",
     "neural_network_architecture.png",
-    "Screenshot 2024-10-06 at 2.14.14 PM.png",
-    "Screenshot 2024-10-06 at 2.13.01 PM.png",
-    "README.md",
-    "sigmoid_function_graph.png",
-    "sigmoid_graph.png"
+    "README.md"
   ]
 }

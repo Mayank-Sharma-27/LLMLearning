@@ -91,9 +91,11 @@ In the neural network architecture, the leftmost layer is called the input layer
 The design of the input and output layers in a network is often straightforward. For example, suppose we're trying to determine if a handwritten image depicts a "9" or not. A natural way to design the network is to encode the intensities of the image pixels into the input neurons. If the image is a 64 by 64 greyscale image, then we'd have 4,096=64×64 input neurons, with the intensities scaled appropriately between 0 and 1. The output layer will contain just a single neuron, with output values of less than 0.5 indicating "input image is not a 9", and values greater than 0.5 indicating "input image is a 9".
 
 ### Gradient Descent
-To train the neural network we feed the neural network with a training labled data. For example if we feed in a input x and we expected an input y we will feed that the network. This is how we make sure that the network learns overtime. Suppose after training the data we feed in the input to the network and check what was the output given by the network. If the network gets this wrong we try to adjust the weight and biases again and try. 
 
-Let us understand this with a example, Suppose we have a model which predicts the price of house based on some input parameters such as pincode and size of the house. We train the model based on the training data and then feed an input to the model to predict the price. Suppose the prediction made by the model is that house will be sold by 1 million, but in reality the house was sold at the price of 1.5 million. This means that we need to adjust the weights and biases again and train the model. In technical terms we will say that the ```cost function``` is very large in this case.
+To train the neural network we feed the neural network with a training labled data. For example if we feed in a input x and we expected an input y we will feed that the network. This is how we make sure that the network learns overtime. Suppose after training the data we feed in the input to the network and check what was the output given by the network. If the network gets this wrong we try to adjust the weight and biases again and try.
+
+Let us understand this with a example, Suppose we have a model which predicts the price of house based on some input parameters such as pincode and size of the house. We train the model based on the training data and then feed an input to the model to predict the price. Suppose the prediction made by the model is that house will be sold by 1 million, but in reality the house was sold at the price of 1.5 million. This means that we need to adjust the weights and biases again and train the model. In technical terms we will say that the `cost function` is very large in this case.
+
 #### Cost Function
 
 ![[cost-of-difference.png]](cost-of-difference.png)
@@ -107,6 +109,7 @@ Youtube videos : [1](https://www.youtube.com/watch?v=i62czvwDlsw&t=20s)
 [2](https://www.youtube.com/watch?v=IHZwWFHWa-w&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=2)
 
 ### Back Propagation
+
 Till now we have learnt how the architecture of neural network looks like where we have input layer, hidden layers and the output layer. The input is traversed through hidden layers with weight and biases to produce an output and this is called forward propagation. We saw in the above section that the final output might not be correct. In that case network needs to learn from its mistakes. Back Propagation is an algorithm used to train the neural networks applying the error correction principle.
 
 ![[backpropagation.png]](backpropagation.png)
@@ -114,34 +117,36 @@ Till now we have learnt how the architecture of neural network looks like where 
 Next Step before starting Zero to Hero Course : https://www.youtube.com/watch?v=VMj-3S1tku0&t=7334s is to learn about PyTorch
 
 ## Implementing Video 1 in the series
+
 Some questions that I will keep on documenting
 
 ### What is Numpy?
+
 NumPy is a Python library used for working with arrays.
 It also has functions for working in domain of linear algebra, fourier transform, and matrices.
 
 ### What is a derivative?
+
 The derivative is the slope of the tangent line of a curve. The derivative the slope of a specific line. For a linear function like y = mx + b, the derivative is just m. Every point on the curve has the same local slope.
 
-For quadratic functions like y = x2 the derivative is 2x. So at any point the slope of the tangent line is 2x. At x = 0, at the bottom of the parabola the derivative is 2*0 = 0. It's a flat constant line that touches the parabola at x = 0. At x = 1 the derivative is 2 times 1 or 2. At x = 2 the derivative is 2 times 2 = 4. At x = 3 the derivative is 2 times 3 = 6. So though points on y = x2 are always the square of the x value, the slope at that point is increasing by 2 times the value of x at that point.
+For quadratic functions like y = x2 the derivative is 2x. So at any point the slope of the tangent line is 2x. At x = 0, at the bottom of the parabola the derivative is 2\*0 = 0. It's a flat constant line that touches the parabola at x = 0. At x = 1 the derivative is 2 times 1 or 2. At x = 2 the derivative is 2 times 2 = 4. At x = 3 the derivative is 2 times 3 = 6. So though points on y = x2 are always the square of the x value, the slope at that point is increasing by 2 times the value of x at that point.
 
 The derivative is the instantaneous rate of a change. If you are traveling in a car the derivative of your distance with respect to time is your velocity. Miles per hour or kilometers per hour is your rate of change. The value of the speed on the speedometer is the rate of change right now. Your average rate of change is the total distance you traveled divided by the total time traveled over the period of interest.
 
-In the code(Check the micrograd_from_scratch) I drew this graph: 
+In the code(Check the micrograd_from_scratch) I drew this graph:
 
-![[Screenshot 2024-10-17 at 7.54.12 AM.png]](Screenshot 2024-10-17 at 7.54.12 AM.png)
+![[short_graph.png]](short_graph.png)
 
-changing the the grad would change the output, example grad in node d if changed will change the value of L similarly changing grad in f will change the value of L. For full graph check the video or the notebook. So to find out how much would L change with change of d we need to find dL/dD. In our code L = d*f so calculating the derivative
-![[Screenshot 2024-10-17 at 8.00.33 AM.png]](Screenshot 2024-10-17 at 8.00.33 AM.png)
+changing the the grad would change the output, example grad in node d if changed will change the value of L similarly changing grad in f will change the value of L. For full graph check the video or the notebook. So to find out how much would L change with change of d we need to find dL/dD. In our code L = d\*f so calculating the derivative
+![[derivative.png]](derivative.png)
 
 Understanding this with an example
 
-
-![[Screenshot 2024-10-17 at 7.59.27 AM.png]](Screenshot 2024-10-17 at 7.59.27 AM.png)
+![[graph.png]](graph.png)
 
 Let us say the value of L is -8 as in the above graph. suppose I change the value of f now,
-![[Screenshot 2024-10-17 at 8.08.26 AM.png]](Screenshot 2024-10-17 at 8.08.26 AM.png)
-First the value of L1 is -8, then I changed the value of f by 1, adding h where h =1. So how should the value of L be changed? dl/df which is d (L = d* f). So it means gradient of f is 4, so when I increased the value of f by 1 the value of L became -4 (L2 = L.data) the change here is 4. I have printed the values to make it easy. L1 was -8 then we changed f by 1 the gradient of f was 4 so it increased the value by 4 which made it -4. 
+![[code.png]](code.png)
+First the value of L1 is -8, then I changed the value of f by 1, adding h where h =1. So how should the value of L be changed? dl/df which is d (L = d\* f). So it means gradient of f is 4, so when I increased the value of f by 1 the value of L became -4 (L2 = L.data) the change here is 4. I have printed the values to make it easy. L1 was -8 then we changed f by 1 the gradient of f was 4 so it increased the value by 4 which made it -4.
 
 | Resources   |                                                                                                                  |
 | ----------- | ---------------------------------------------------------------------------------------------------------------- |
