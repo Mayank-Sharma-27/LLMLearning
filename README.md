@@ -127,7 +127,21 @@ For quadratic functions like y = x2 the derivative is 2x. So at any point the s
 
 The derivative is the instantaneous rate of a change. If you are traveling in a car the derivative of your distance with respect to time is your velocity. Miles per hour or kilometers per hour is your rate of change. The value of the speed on the speedometer is the rate of change right now. Your average rate of change is the total distance you traveled divided by the total time traveled over the period of interest.
 
+In the code(Check the micrograd_from_scratch) I drew this graph: 
 
+![[Screenshot 2024-10-17 at 7.54.12 AM.png]](Screenshot 2024-10-17 at 7.54.12 AM.png)
+
+changing the the grad would change the output, example grad in node d if changed will change the value of L similarly changing grad in f will change the value of L. For full graph check the video or the notebook. So to find out how much would L change with change of d we need to find dL/dD. In our code L = d*f so calculating the derivative
+![[Screenshot 2024-10-17 at 8.00.33 AM.png]](Screenshot 2024-10-17 at 8.00.33 AM.png)
+
+Understanding this with an example
+
+
+![[Screenshot 2024-10-17 at 7.59.27 AM.png]](Screenshot 2024-10-17 at 7.59.27 AM.png)
+
+Let us say the value of L is -8 as in the above graph. suppose I change the value of f now,
+![[Screenshot 2024-10-17 at 8.08.26 AM.png]](Screenshot 2024-10-17 at 8.08.26 AM.png)
+First the value of L1 is -8, then I changed the value of f by 1, adding h where h =1. So how should the value of L be changed? dl/df which is d (L = d* f). So it means gradient of f is 4, so when I increased the value of f by 1 the value of L became -4 (L2 = L.data) the change here is 4. I have printed the values to make it easy. L1 was -8 then we changed f by 1 the gradient of f was 4 so it increased the value by 4 which made it -4. 
 
 | Resources   |                                                                                                                  |
 | ----------- | ---------------------------------------------------------------------------------------------------------------- |
