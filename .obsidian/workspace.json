@@ -179,18 +179,18 @@
   },
   "active": "e9e86a49a6ab356e",
   "lastOpenFiles": [
+    "backpropagation_manual.png",
+    "README.md",
+    "backpropagation.ipynb",
     "activation_function.png",
     "neuron.png",
     "chainrule.png",
     "short_graph.png",
-    "README.md",
     "graph.png",
     "derivative.png",
     "code.png",
     "Screenshot 2024-10-17 at 8.08.26 AM.png",
     "Screenshot 2024-10-17 at 8.00.33 AM.png",
-    "Screenshot 2024-10-17 at 7.59.27 AM.png",
-    "Screenshot 2024-10-17 at 7.54.12 AM.png",
     "micrograd_from_scratch.ipynb",
     "micrograd_from_scratch."
   ]

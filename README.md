@@ -186,10 +186,8 @@ In [artificial neural networks](https://en.wikipedia.org/wiki/Artificial_neural
 In the example in the video we have taken TanhH function.
 Check backpropagation file now for how it worked. 
  The end neuron looks like this
+ ![[backpropagation_manual.png]](backpropagation_manual.png)
  
-
-
-
 | Resources                                                  |                                                                                                                  |
 | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | Medium Blog                                                | [https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2](https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2) |
