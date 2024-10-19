@@ -148,7 +148,9 @@
   },
   "active": "66f64885628b2c6c",
   "lastOpenFiles": [
+    "chainrule.png",
     "short_graph.png",
+    "README.md",
     "graph.png",
     "derivative.png",
     "code.png",
@@ -158,9 +160,6 @@
     "Screenshot 2024-10-17 at 7.54.12 AM.png",
     "micrograd_from_scratch.ipynb",
     "micrograd_from_scratch.",
-    "cost-of-difference.png",
-    "backpropagation.png",
-    "neural_network_architecture.png",
-    "README.md"
+    "cost-of-difference.png"
   ]
 }

@@ -148,8 +148,30 @@ Let us say the value of L is -8 as in the above graph. suppose I change the valu
 ![[code.png]](code.png)
 First the value of L1 is -8, then I changed the value of f by 1, adding h where h =1. So how should the value of L be changed? dl/df which is d (L = d\* f). So it means gradient of f is 4, so when I increased the value of f by 1 the value of L became -4 (L2 = L.data) the change here is 4. I have printed the values to make it easy. L1 was -8 then we changed f by 1 the gradient of f was 4 so it increased the value by 4 which made it -4.
 
-| Resources   |                                                                                                                  |
-| ----------- | ---------------------------------------------------------------------------------------------------------------- |
-| Medium Blog | [https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2](https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2) |
-| Website     | http://neuralnetworksanddeeplearning.com/                                                                        |
-| Youtube     | https://www.youtube.com/@3blue1brown                                                                             |
+### How node C impacts L?
+
+To find how C impacts L we need to do dL/dC, we find this using chain rule.
+![[graph.png]](graph.png)
+#### Chain Rule
+
+The chain rule states that knowing the instantaneous rate of change of _z_ relative to _y_ and that of _y_ relative to _x_ allows one to calculate the instantaneous rate of change of _z_ relative to _x_ as the product of the two rates of change.
+
+As put by [George F. Simmons](https://en.wikipedia.org/wiki/George_F._Simmons "George F. Simmons"): "If a car travels twice as fast as a bicycle and the bicycle is four times as fast as a walking man, then the car travels 2 × 4 = 8 times as fast as the man."[[1]](https://en.wikipedia.org/wiki/Chain_rule#cite_note-1)
+
+The relationship between this example and the chain rule is as follows. Let z, y and x be the (variable) positions of the car, the bicycle, and the walking man, respectively. The rate of change of relative positions of the car and the bicycle is dzdy=2.![{\textstyle {\frac {dz}{dy}}=2.}](https://wikimedia.org/api/rest_v1/media/math/render/svg/22c0a6d7a5d2d56a62796839af72d517b6023910) Similarly, dydx=4.![{\textstyle {\frac {dy}{dx}}=4.}](https://wikimedia.org/api/rest_v1/media/math/render/svg/fe3bcfe19742de78e60ec58cc82380def6132fc0) So, the rate of change of the relative positions of the car and the walking man isdzdx=dzdy⋅dydx=2⋅4=8.![{\displaystyle {\frac {dz}{dx}}={\frac {dz}{dy}}\cdot {\frac {dy}{dx}}=2\cdot 4=8.}](https://wikimedia.org/api/rest_v1/media/math/render/svg/370629d3d6db86ea972c602a1e96a024ba912389)
+
+Using chain rule the gradient comes out to be -2
+
+![[chainrule.png]](chainrule.png)
+
+**Next we find dL/dA**
+
+dL/dA = (dL/dE)*(dE/dA)
+
+| Resources                                                  |                                                                                                                  |
+| ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Medium Blog                                                | [https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2](https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2) |
+| Website                                                    | http://neuralnetworksanddeeplearning.com/                                                                        |
+| Youtube                                                    | https://www.youtube.com/@3blue1brown                                                                             |
+| [Andrej Karpathy](https://www.youtube.com/@AndrejKarpathy) | [PlayList](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)                  |
+|                                                            |                                                                                                                  |
