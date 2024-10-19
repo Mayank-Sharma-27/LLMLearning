@@ -168,6 +168,28 @@ Using chain rule the gradient comes out to be -2
 
 dL/dA = (dL/dE)*(dE/dA)
 
+## Manual backpropagation example #2: a neuronn.
+In this example in the video he implements back propagation in actual neuron using a hyper bolic function. We will do a more complex funciton with weights and take it to a activation function.
+
+But before that I want to capture one thing
+### What is the difference between cost function and activation function?
+![[neuron.png]](neuron.png)
+
+- A cost function is a measure of error between what value your model predicts and what the value actually is. For example, say we wish to predict the value yi for data point xi.
+- An activation function is a very important feature of an artificial neural network , they basically decide whether the neuron should be activated or not.
+
+In [artificial neural networks](https://en.wikipedia.org/wiki/Artificial_neural_network), the **activation function** defines the output of that node given an input or set of inputs.
+
+![[activation_function.png]](
+(activation_function.png)
+
+In the example in the video we have taken TanhH function.
+Check backpropagation file now for how it worked. 
+ The end neuron looks like this
+ 
+
+
+
 | Resources                                                  |                                                                                                                  |
 | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | Medium Blog                                                | [https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2](https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2) |
