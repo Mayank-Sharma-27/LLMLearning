@@ -187,7 +187,55 @@ In the example in the video we have taken TanhH function.
 Check backpropagation file now for how it worked. 
  The end neuron looks like this
  ![[backpropagation_manual.png]](backpropagation_manual.png)
- 
+
+### Doing similar operations with PyTorch
+https://pytorch.org/
+I will keep on adding things here as needed
+
+A [`torch.Tensor`](https://pytorch.org/docs/stable/tensors.html#torch.Tensor "torch.Tensor") is a multi-dimensional matrix containing elements of a single data type.
+
+## Implementing Video 2 in the series
+
+This video is 5 part video.
+
+In this we will recommend a name from a list of names.
+We will learn to use tensor to manipulate 2d arrays.
+
+
+```
+chars = sorted(list(set(''.join(words))))
+stoi = {s: i +1 for i,s in enumerate(chars)}
+stoi['.'] = 0
+itos = {i:s for s,i in stoi.items()}
+
+
+for w in words:
+    chs = ['.'] + list(w) + ['.']
+    for ch1, ch2 in zip(chs, chs[1:]):
+        ix1 = stoi[ch1]
+        ix2 = stoi[ch2]
+        N[ix1, ix2] += 1
+
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+plt.figure(figsize=(16,16))
+plt.imshow(N, cmap='Blues')
+for i in range(27):
+    for j in range(27):
+        chstr = itos[i] + itos[j]
+        plt.text(j,i, chstr, ha="center", va="bottom", color='gray')
+        plt.text(j, i, N[i,j].item(), ha="center", va="top", color='gray')
+plt.axis("off")
+```
+
+Using this code we are able to create a matrix of how many times a combination of 2 letters occurs. For example 
+![[First_Row.png]](First_Row.png)
+
+This row represents how many times a name starts with a letter, we will measure probability now and use [Torch.Multinomial library](https://pytorch.org/docs/stable/generated/torch.multinomial.html)  
+
+
+
 | Resources                                                  |                                                                                                                  |
 | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | Medium Blog                                                | [https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2](https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2) |
