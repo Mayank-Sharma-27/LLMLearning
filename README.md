@@ -233,7 +233,210 @@ Using this code we are able to create a matrix of how many times a combination o
 ![[First_Row.png]](First_Row.png)
 
 This row represents how many times a name starts with a letter, we will measure probability now and use [Torch.Multinomial library](https://pytorch.org/docs/stable/generated/torch.multinomial.html)  
+Additional reads is 
 
+https://pytorch.org/docs/stable/notes/broadcasting.html
+Before continuing the lecture will learn basics of pytorch as I feel I will not be able to understand the future videos.
+
+When I run this code
+
+```
+g = torch.Generator().manual_seed(2147483647)
+p = torch.rand(3, generator=g)
+p
+```
+
+The output is always
+
+```
+tensor([0.7081, 0.3542, 0.1054])
+```
+
+The reason seems to be due to seed
+
+### What is a Seed?
+
+A **seed** is an integer used to initialize a random number generator. It determines the starting point for the sequence of random numbers that will be generated. By setting a specific seed value, you make the sequence of random numbers **predictable** and **reproducible**.
+
+### Why Does the Output Remain the Same?
+
+When you set a seed in PyTorch, like this:
+
+```
+g = torch.Generator().manual_seed(2147483647)
+```
+
+it means you are telling the generator `g` to start from a fixed point in its internal sequence of random numbers. Every time you run `torch.rand(3, generator=g)`, it will generate the same sequence of values starting from that point, producing the same output.
+
+For instance:
+
+`p = torch.rand(3, generator=g) print(p)  # Always gives tensor([0.7081, 0.3542, 0.1054]) with seed 2147483647`
+
+If you change the seed to something else, like `12345`, you’ll get a different sequence of values. However, each time you use that seed (`12345`), it will generate the same sequence of random numbers associated with it.
+
+### Why Use a Seed?
+
+Setting a seed is especially useful in tasks that require reproducibility, like machine learning experiments. By using the same seed, you ensure that your results can be repeated, which is crucial for debugging, testing, and sharing results with others.
+
+Another Important thing to learn is  Broadcasting
+### Broadcasting
+
+**Broadcasting** is a method that allows you to perform operations on tensors of different shapes. It automatically expands smaller tensors to match the shape of larger ones so that mathematical operations can be performed on them without needing to explicitly reshape or copy data.
+
+### How Broadcasting Works
+
+When performing an operation (e.g., addition, multiplication) on two tensors with different shapes, PyTorch checks if broadcasting can make the shapes compatible by following a set of rules:
+
+1. **Match from the Right**: Starting from the rightmost dimension, compare the shapes of each dimension.
+2. **Rule of Size 1**: If a dimension of one tensor has size `1`, it can be stretched (broadcasted) to match the size of the other tensor in that dimension.
+3. **Equal Dimensions**: If two dimensions are equal, they are compatible.
+4. **Mismatched Sizes**: If neither of the dimensions is `1` or if the dimensions don’t match, broadcasting is not possible, and an error will be raised.
+#### Example of Broadcasting
+
+```
+A = torch.tensor([[1, 2, 3],
+                  [4, 5, 6]])  # Shape: (2, 3)
+
+B = torch.tensor([10, 20, 30])  # Shape: (3,)
+
+```
+
+In this case:
+
+- `A` has shape `(2, 3)`, and `B` has shape `(3,)`.
+- PyTorch will attempt to apply broadcasting so that `B` can match the shape of `A` along the leftmost dimension.
+When we do `A + B`, the result will be:
+
+
+```
+A + B # Shape (2, 3) # tensor([[11, 22, 33], # [14, 25, 36]])
+```
+#### Steps in Broadcasting for This Example
+
+1. **Expand B**: Since `B` has shape `(3,)`, it is automatically expanded to `(1, 3)`.
+2. **Repeat Along Rows**: To match the shape of `A`, `B` is then repeated along the first dimension, resulting in an effective shape of `(2, 3)` for the operation.
+3. **Perform the Element-wise Operation**: Now that `A` and the expanded `B` both have shape `(2, 3)`, PyTorch can add them element-wise.
+#### Benefits of Broadcasting
+
+- **Memory Efficiency**: Broadcasting avoids creating copies of data unnecessarily.
+- **Ease of Use**: It simplifies operations on tensors of different shapes by automatically adjusting dimensions.
+#### Summary
+
+Broadcasting is a powerful technique that enables element-wise operations on tensors of different shapes by automatically adjusting dimensions, following specific rules. It’s widely used in PyTorch and other libraries for flexible and memory-efficient computations.
+
+### Why  P /= P.sum(1) and P = N.float() P /= P.sum(1, keepdims= True) returns different values
+
+I added this question in chatgpt and it gave a good example response
+Sure! Let’s go through the process with an example using an actual \(2 \times 2\) tensor. We’ll examine the behavior of `P.sum(1)` with and without `keepdims=True` to see how it affects the results.
+
+
+#### Example Tensor
+Let's create a tensor `P`:
+```python
+P = torch.tensor([[1.0, 2.0],
+                  [3.0, 4.0]])
+```
+
+#### Case 1: `P.sum(1)` without `keepdims=True`
+
+```python
+P_sum = P.sum(1)
+```
+
+Here’s what happens:
+1. `P.sum(1)` calculates the sum across each row (dimension 1), so:
+   - For the first row: \(1.0 + 2.0 = 3.0\)
+   - For the second row: \(3.0 + 4.0 = 7.0\)
+   
+   This results in a tensor of shape `[2]` (1 value per row):
+   ```python
+   P_sum = torch.tensor([3.0, 7.0])  # Shape: [2]
+   ```
+
+2. **Dividing without `keepdims=True`**:
+   When you do:
+   ```python
+   P /= P_sum
+   ```
+   Broadcasting applies, so `P_sum` (shape `[2]`) will be applied across each row in `P`. However, because it lacks a second dimension, the division operation will implicitly expand `P_sum` to match each row, which can lead to an unexpected result:
+
+   ```python
+   P = P / P_sum  # Results in:
+   tensor([[0.3333, 0.6667],
+           [0.4286, 0.5714]])
+   ```
+   This division works row-wise, but it divides each row by a single scalar, leading to a different normalization effect.
+
+#### Case 2: `P.sum(1, keepdims=True)`
+
+```python
+P_sum_keepdims = P.sum(1, keepdims=True)
+```
+
+With `keepdims=True`, the sum retains the original shape along dimension `1`:
+1. `P.sum(1, keepdims=True)` will result in:
+   ```python
+   P_sum_keepdims = torch.tensor([[3.0],
+                                  [7.0]])  # Shape: [2, 1]
+   ```
+
+2. **Dividing with `keepdims=True`**:
+   Now, when you divide by `P_sum_keepdims`:
+   ```python
+   P = P / P_sum_keepdims
+   ```
+   Broadcasting can align each row individually because of the additional singleton dimension in `P_sum_keepdims`, giving you:
+   ```python
+   tensor([[0.3333, 0.6667],
+           [0.4286, 0.5714]])
+   ```
+
+In this case, each element is divided by the sum of its respective row, as expected, without any unintended broadcasting effects. 
+
+#### Why `keepdims=True` Is Important
+Using `keepdims=True` retains the original tensor structure, making sure that each row is normalized individually without mismatched dimensions.
+
+#### Another question I asked is What is P.sum(1) what does 1 mean here?
+This is the response
+
+In `P.sum(1)`, the `1` is the **dimension along which the sum is computed**. In PyTorch (and many other tensor libraries), dimensions are indexed starting from 0, so:
+
+- `0` refers to the **rows** (first dimension).
+- `1` refers to the **columns** (second dimension).
+
+### Explanation with Example
+
+Suppose we have this tensor `P`:
+
+```python
+P = torch.tensor([[1.0, 2.0, 3.0],
+                  [4.0, 5.0, 6.0]])
+```
+
+Now, if we do:
+
+1. **`P.sum(0)`**: Sums along **dimension 0** (across rows).
+   - This will sum each column, resulting in a tensor with one element per column:
+   ```python
+   P.sum(0)  # Output: tensor([5.0, 7.0, 9.0])
+   ```
+   - Explanation:
+     - Column 1: \(1.0 + 4.0 = 5.0\)
+     - Column 2: \(2.0 + 5.0 = 7.0\)
+     - Column 3: \(3.0 + 6.0 = 9.0\)
+
+2. **`P.sum(1)`**: Sums along **dimension 1** (across columns).
+   - This will sum each row, resulting in a tensor with one element per row:
+   ```python
+   P.sum(1)  # Output: tensor([6.0, 15.0])
+   ```
+   - Explanation:
+     - Row 1: \(1.0 + 2.0 + 3.0 = 6.0\)
+     - Row 2: \(4.0 + 5.0 + 6.0 = 15.0\)
+
+### Summary
+- **`0`** in `sum(0)` means summing across rows (getting a result per column).
+- **`1`** in `sum(1)` means summing across columns (getting a result per row).
 
 
 | Resources                                                  |                                                                                                                  |
