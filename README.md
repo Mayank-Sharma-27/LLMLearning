@@ -404,7 +404,7 @@ In `P.sum(1)`, the `1` is the **dimension along which the sum is computed**. In 
 - `0` refers to the **rows** (first dimension).
 - `1` refers to the **columns** (second dimension).
 
-### Explanation with Example
+#### Explanation with Example
 
 Suppose we have this tensor `P`:
 
@@ -434,10 +434,27 @@ Now, if we do:
      - Row 1: \(1.0 + 2.0 + 3.0 = 6.0\)
      - Row 2: \(4.0 + 5.0 + 6.0 = 15.0\)
 
-### Summary
+#### Summary
 - **`0`** in `sum(0)` means summing across rows (getting a result per column).
 - **`1`** in `sum(1)` means summing across columns (getting a result per row).
 
+### Training Loss
+We now calculate the training loss of the function to know how good our model is. Likelihood is the probability of the entire dataset of entire model. Since the product of the probability was very low so for convenience we work with log likelihood. 
+
+We also did Normalization of model, Normalization is **a data pre-processing tool used to bring the numerical data to a common scale without distorting its shape**
+
+We changed this:
+```
+P = (N).float()
+P /= P.sum(1, keepdims=True)
+```
+
+to
+
+```
+P = (N+1).float() # We did N+1 to do model normalization
+P /= P.sum(1, keepdims=True)
+```
 
 | Resources                                                  |                                                                                                                  |
 | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
