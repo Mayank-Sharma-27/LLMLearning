@@ -439,9 +439,7 @@ Now, if we do:
 - **`1`** in `sum(1)` means summing across columns (getting a result per row).
 
 ### Training Loss
-We now calculate the training loss of the function to know how good our model is. Likelihood is the probability of the entire dataset of entire model. Since the product of the probability was very low so for convenience we work with log likelihood. 
-
-We also did Normalization of model, Normalization is **a data pre-processing tool used to bring the numerical data to a common scale without distorting its shape**
+We now calculate the training loss of the function to know how good our model is. Likelihood is the probability of the entire dataset of entire model. Since the product of the probability was very low so for convenience we work with log likelihood. **
 
 We changed this:
 ```
@@ -452,9 +450,27 @@ P /= P.sum(1, keepdims=True)
 to
 
 ```
-P = (N+1).float() # We did N+1 to do model normalization
+P = (N+1).float() # We did N+1 to do model smoothing
 P /= P.sum(1, keepdims=True)
 ```
+
+In the video its mentioned that 
+
+"It does not make sense for the input layer to have integer values" because of that he did the encoding of integers using [One Hot Encoding](https://pytorch.org/docs/stable/generated/torch.nn.functional.one_hot.html)
+
+**I also asked chatGpt why should we do ecoding this is the answer:**
+
+In a neural network, it's generally not recommended for the input layer to take on raw integer values because neural networks typically perform better with continuous, normalized, or scaled data. Here’s why:
+
+1. **Gradient-Based Learning:** Neural networks use gradient-based optimization (like gradient descent) to minimize error. Continuous, normalized inputs help ensure smooth gradients, making optimization more effective. Integer values, especially if large, can lead to uneven or steep gradients, which can hinder convergence.
+
+2. **Range and Scale Variability:** Integer inputs can vary widely in scale. For example, if some features are in the range of 0-10 while others are in thousands, the network might struggle to learn meaningful patterns across these disparities. Normalization (e.g., scaling inputs to a 0–1 range) mitigates this problem, allowing each feature to contribute proportionately to learning.
+
+3. **Activation Function Sensitivity:** Activation functions (like sigmoid, tanh, or ReLU) are sensitive to input ranges. Large integer values might push neurons to extreme activation (saturation), making it harder for the network to learn effectively. By using continuous, normalized inputs, the network can make better use of the full range of activation functions, facilitating more effective learning.
+
+4. **Interpretability of Features:** Continuous data often represents meaningful relationships better in many real-world applications. If integer values encode discrete categories, they are often better represented through one-hot encoding, while numeric values (like age or salary) should be normalized.
+
+In general, preprocessing inputs to be continuous, normalized values rather than raw integers helps neural networks learn more effectively and converge faster.
 
 | Resources                                                  |                                                                                                                  |
 | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
