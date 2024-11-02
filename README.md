@@ -472,6 +472,9 @@ In a neural network, it's generally not recommended for the input layer to take 
 
 In general, preprocessing inputs to be continuous, normalized values rather than raw integers helps neural networks learn more effectively and converge faster.
 
+## Building a AI Agent
+While I continue to learn the tutorials, I will start building an AI Agent.
+
 | Resources                                                  |                                                                                                                  |
 | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | Medium Blog                                                | [https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2](https://prvnk10.medium.com/sigmoid-neuron-ad0ec6f9a3e2) |
