@@ -474,6 +474,9 @@ In general, preprocessing inputs to be continuous, normalized values rather than
 
 ## Building a AI Agent
 While I continue to learn the tutorials, I will start building an AI Agent.
+I know prompts so I am good on that part, I need to learn building a RAG pipeline.
+
+
 
 | Resources                                                  |                                                                                                                  |
 | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -481,4 +484,5 @@ While I continue to learn the tutorials, I will start building an AI Agent.
 | Website                                                    | http://neuralnetworksanddeeplearning.com/                                                                        |
 | Youtube                                                    | https://www.youtube.com/@3blue1brown                                                                             |
 | [Andrej Karpathy](https://www.youtube.com/@AndrejKarpathy) | [PlayList](https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ)                  |
-|                                                            |                                                                                                                  |
+| My Rag Application                                         | https://github.com/Mayank-Sharma-27/MySkinBuddy                                                                  |
+| Book I am learning                                         | https://github.com/Mayank-Sharma-27/udlbook                                                                      |
