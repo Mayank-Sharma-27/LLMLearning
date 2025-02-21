@@ -21,7 +21,7 @@ Self Supervision is different from unsupervision. In self-supervised learning, l
 
 The model that can work with one data modality is called multimodal, for example a text model can only work with tasks related to text. Auto models can handle speech recoginzation and speech.
 
-![[Multimodal.excalidraw]](/Excalidraw/Multimodal.excalidraw.md)
+![[Multimodal.excalidraw]](Multimodal.excalidraw.md)
 
 ### AI Engineering
 Ai engineering refers to the process of building applications on top of foundational models.

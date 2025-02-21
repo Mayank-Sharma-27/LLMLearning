@@ -60,18 +60,6 @@
               "icon": "lucide-image",
               "title": "First_Row"
             }
-          },
-          {
-            "id": "c9d5dcd6d4828600",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Multimodal.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Multimodal.excalidraw"
-            }
           }
         ],
         "currentTab": 2
@@ -218,6 +206,7 @@
   },
   "active": "882d746e89501dcc",
   "lastOpenFiles": [
+    "AI Engineering Book/Multimodal.excalidraw.md",
     "First_Row.png",
     "Excalidraw/Multimodal.excalidraw.md",
     "AI Engineering Book/Chapter 1.md",
